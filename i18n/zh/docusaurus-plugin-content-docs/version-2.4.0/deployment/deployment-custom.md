@@ -34,12 +34,12 @@ description: 自定义部署
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-gateway</artifactId>
-        <version>${project.version}</version>
+        <version>2.4.0</version>
     </dependency>
     <dependency>
         <groupId>org.apache.shenyu</groupId>
         <artifactId>shenyu-spring-boot-starter-sync-data-websocket</artifactId>
-        <version>${project.version}</version>
+        <version>2.4.0</version>
     </dependency>
 </dependencies>
 ```
@@ -60,6 +60,7 @@ shenyu:
   sync:
     websocket:
       urls: ws://localhost:9095/websocket  //设置成你的 shenyu-admin 地址
+      allowOrigin: ws://localhost:9195
 ```
 
 

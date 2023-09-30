@@ -10,7 +10,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Admin
 
-* download `apache-shenyu-incubating-2.4.1-admin-bin.tar.gz`
+* download [apache-shenyu-incubating-2.4.1-admin-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-admin-bin.tar.gz)
 
 * unzip `apache-shenyu-incubating-2.4.1-admin-bin.tar.gz`。 go to the `bin` directory.
 
@@ -22,7 +22,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 > linux: ./start.sh --spring.profiles.active = h2
 ```
 
-* use `MySQL` to store data, go to the `/conf` directory, and modify the configuration of `mysql` in `application.yaml`.
+* use `MySQL` to store data, copy [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar) to /$(your_work_dir)/ext-lib, go to the `/conf` directory, and modify the configuration of `mysql` in `application.yaml`.
 
 ```
 > windows: start.bat 
@@ -40,7 +40,7 @@ This article introduces the deployment of the `Apache ShenYu` gateway using the 
 
 ### Start Apache ShenYu Bootstrap
 
-* download `apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz`
+* download [apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz](https://archive.apache.org/dist/incubator/shenyu/2.4.1/apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz)
 
 * unzip `apache-shenyu-incubating-2.4.1-bootstrap-bin.tar.gz`。 go to the `bin` directory.
 

@@ -1,6 +1,6 @@
 ---
 title: Code Suggestions
-sidebar_position: 2
+sidebar_position: 1
 description: Apache ShenYu Coding Guide
 author: "xiaoyu"
 categories: "Apache ShenYu"
@@ -25,19 +25,24 @@ cover: "/img/architecture/shenyu-framework.png"
 
 * Tab size is 4 and keep indents on empty lines.
 
-* All code passage of Checkstyle: https://github.com/apache/incubator-shenyu/blob/master/script/shenyu_checkstyle.xml
+* All code passage of Checkstyle: https://github.com/apache/shenyu/blob/master/script/shenyu_checkstyle.xml
+
+* When adding a new file, you need to add the [apache protocol](https://github.com/apache/shenyu-website/blob/57f9a6b14c27d97137275453b207232f3df53205/LICENSE#L191-L201) in the header of the file.
+
+* Try not to use a third party utility class directly.  Check to see if it is included in the util package for this project
+
 
 ## Object
 
-* Ues Optional transform Null.
+* Use Optional transform Null.
 
 > Optional.ofNullable(xxx).orElse(obj)
 
-* Ues Objects Judgment Null Or NotNull.
+* Use Objects Judgment Null Or NotNull.
 
 > Objects.isNull(obj) OR Objects.nonNull(obj)
 
-* Ues `Objects.equals` Judgment are they equal.
+* Use `Objects.equals` Judgment are they equal.
 
 > Objects.equals(obj1, obj2)
 
@@ -58,7 +63,7 @@ for () {
 
 * Use `LinkedList` when you need to add or delete elements, Else use `ArrayList`.
 
-* Ues `org.apache.commons.collections4.CollectionUtils` Judgment Is empty Or Not empty.
+* Use `org.apache.commons.collections4.CollectionUtils` Judgment Is empty Or Not empty.
 
 > CollectionUtils.isEmpty(list) or CollectionUtils.isNotEmpty(data)
 
@@ -79,7 +84,7 @@ while (iter.hasNext()) {
 
 ## String
 
-* Ues `org.apache.commons.lang3.StringUtils` Judgment Is empty Or Not empty.
+* Use `org.apache.commons.lang3.StringUtils` Judgment Is empty Or Not empty.
 
 > StringUtils.isEmpty(list) or StringUtils.isNotEmpty(data)
 
@@ -156,7 +161,7 @@ try {
   current : ```A a = null == b ? cMap.values().iterator().next() : cMap.get(d);```  
   current : ```return null == a ? new B() : new B(c);```    
   recommendation : No modification.  
-                  
+  
 * Judge collection is null or not, below are some representative examples:      
   current :  
 
@@ -164,10 +169,10 @@ try {
   private boolean isEmpty(final List<String> xxx) {
       return null == xxx || xxx.isEmpty();
   }
-  ```  
+  ```
   
   recommendation : Add a collection tool class to make unified judgment.    
-                  
+  
 * Judge Map's value is Null or not, below are some representative examples:  
   current :  
 

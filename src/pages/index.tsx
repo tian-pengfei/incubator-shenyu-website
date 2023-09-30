@@ -1,13 +1,23 @@
-import React from 'react';
-import Link from '@docusaurus/Link';
-import Translate, { translate } from '@docusaurus/Translate';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import Layout from '@theme/Layout';
+import React, {useEffect} from "react";
+import Link from "@docusaurus/Link";
+import Translate, { translate } from "@docusaurus/Translate";
+import { Swiper, SwiperSlide } from "swiper/react";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Layout from "@theme/Layout";
+import SwiperCore, {
+  EffectFade,
+  Navigation,
+  Autoplay
+} from 'swiper';
 
-import clsx from 'clsx';
-import styles from './index.module.css';
-import Features from '../components/Features';
+import clsx from "clsx";
+import styles from "./index.module.css";
+import Features from "../components/Features";
+import Footer from "../components/Footer";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 function Home() {
   const {
@@ -16,6 +26,8 @@ function Home() {
       tagline,
     },
   } = useDocusaurusContext();
+  useEffect(() => autoRedirect(), []);
+
   return (
     <Layout title={tagline} description={description as string}>
       <main>
@@ -23,110 +35,144 @@ function Home() {
           <div className="row" style={{ alignItems: "center" }}>
             <div className="col col--5  col--offset-1">
               <h1 className={styles.heroProjectTitle}>
-                Apache ShenYu <span className={styles.heroProjectSubTitle}>Incubating</span>
+                <img
+                  src="/img/logo.svg"
+                  className={styles.heroProjectLogo}
+                ></img>
               </h1>
               <h3 className={styles.heroProjectTagline}>
                 <span
                   className={styles.heroTitleTextHtml}
                   dangerouslySetInnerHTML={{
                     __html: translate({
-                      id: 'homepage.hero.title',
+                      id: "homepage.hero.title",
                       message:
-                        'High-performance,<b>multi-protocol</b>,extensible,<b>responsive</b> API Gateway',
+                        "Java native API Gateway for <b> service proxy, protocol conversion and API governance.</b>",
                       description:
-                        'Home page hero title, can contain simple html tags',
+                        "Home page hero title, can contain simple html tags",
                     }),
                   }}
                 />
               </h3>
-              <span
-                className={styles.heroDesc}
-                dangerouslySetInnerHTML={{
-                  __html: translate({
-                    id: 'homepage.hero.desc',
-                    message:
-                      'Compatible with a variety of mainstream framework systems, support hot plug, users can customize the development, meet the current situation and future needs of users in a variety of scenarios, experienced the temper of large-scale scenes',
-                    description:
-                      'Home page hero title, can contain simple html tags',
-                  }),
-                }}
-              />
               <div className={styles.indexCtas}>
-                <Link className="button button--primary" to="/docs/index">
+                <Link className={styles.buttonGetStarted} to="/docs/index">
                   <Translate>Get Started</Translate>
                 </Link>
-                <Link className="button button--info" to="https://github.com/apache/incubator-shenyu">
+                <Link
+                  className={styles.buttonGithub}
+                  to="https://github.com/apache/shenyu"
+                >
                   <Translate>Github</Translate>
                 </Link>
               </div>
             </div>
-            <div className="col col--5 ">
-              <img alt={translate({ message: 'Docusaurus with Keytar' })}
-                className={styles.heroLogo}
-                src={useBaseUrl('/img/architecture/shenyu-framework.png')}
+            <div className="col col--5 col--offset-1">
+              <div className={styles.logoContainer}>
+                <img
+                  alt={translate({ message: "Docusaurus with Keytar" })}
+                  className={styles.heroLogo}
+                  src={useBaseUrl("/img/architecture/shenyu-architecture-3d.png")}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.sectionDashboard}>
+          <Swiper
+            modules={[Autoplay, EffectFade, Navigation]}
+            watchSlidesProgress={true}
+            navigation={{
+              nextEl: '.user-swiper-button-next',
+              prevEl: '.user-swiper-button-prev',
+            }}
+            grabCursor
+            // 轮播下用这个效果会失效
+            // effect={'fade'}
+            // fadeEffect={{
+            //   crossFade: true
+            // }}
+            // slidesPerView={1}
+            // 自动轮播
+            loop={true}
+            speed={0}
+            autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                waitForTransition: false,
+            }}
+          >
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_1.jpg")}
               />
-            </div>
-          </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_2.jpg")}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_3.jpg")}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_4.jpg")}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_5.jpg")}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_6.jpg")}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_7.jpg")}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className={styles.contentImg}
+                src={useBaseUrl("/img/home/2_8.jpg")}
+              />
+            </SwiperSlide>
+          </Swiper>
         </div>
-        <div className={styles.section}>
-          <div className="container text--center">
-            <div className="row">
-              <div className="col">
-                <img
-                  className={styles.featureImage}
-                  alt="Powered by MDX"
-                  src={useBaseUrl('/img/home/open.svg')}
-                />
-                <h2 className={clsx(styles.featureHeading)}>
-                  <Translate>Open</Translate>
-                </h2>
-                <p className="padding-horiz--md">
-                  <Translate>
-                    The technology stack is fully open source construction, maintain the community neutrality, compatible with the community open source ecology, welcome to participate in various contributions at any time.
-                  </Translate>
-                </p>
-              </div>
-              <div className="col">
-                <img
-                  alt="Built Using React"
-                  className={styles.featureImage}
-                  src={useBaseUrl('/img/home/high-performance.svg')}
-                />
-                <h2 className={clsx(styles.featureHeading)}>
-                  <Translate>High-Performance</Translate>
-                </h2>
-                <p className="padding-horiz--md">
-                  <Translate>
-                    High-performance micro-service API gateway, experienced the temper of large-scale scenes.Dynamic flow configuration, high performance, gateway consumption is 1~2ms.
-                  </Translate>
-                </p>
-              </div>
-              <div className="col">
-                <img
-                  alt="Ready for Translations"
-                  className={styles.featureImage}
-                  src={useBaseUrl('/img/home/plugins.svg')}
-                />
-                <h2 className={clsx(styles.featureHeading)}>
-                  <Translate>Pluggable</Translate>
-                </h2>
-                <p className="padding-horiz--md">
-                  <Translate>
-                    Plug-in design idea, plug-in hot plug, easy to expand.Built-in rich plugin support, authentication, limiting, fuse, firewall, etc.
-                  </Translate>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="swiper-button-prev user-swiper-button-prev" style={{ top:"880px", left: "50px", color:'#000033' }}></div>
+        <div className="swiper-button-next user-swiper-button-next" style={{ top:"880px", right: "50px", color:'#000033' }}></div>
         <div className={clsx(styles.section, styles.sectionAlt)}>
           <div className="container">
             <Features />
           </div>
         </div>
+        <div><Footer></Footer></div>
       </main>
     </Layout>
   );
+}
+
+function autoRedirect() {
+  let lang = global.navigator?.language || navigator?.language
+  if (lang != null && lang.toLowerCase() === 'zh-cn') {
+    if (sessionStorage.getItem('auto_detect_redirect') !== 'true') {
+      console.log('Current lang is ' + lang);
+      sessionStorage.setItem('auto_detect_redirect', 'true')
+      window.location.href = '/zh/';
+    }
+  }
 }
 
 export default Home;

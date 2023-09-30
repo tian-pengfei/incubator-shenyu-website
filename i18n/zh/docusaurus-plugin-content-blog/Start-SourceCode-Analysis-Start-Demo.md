@@ -19,7 +19,7 @@ tags: [Apache ShenYu]
 使用Git拉取代码
 
 ```shell
-> git clone https://github.com/apache/incubator-shenyu.git
+git clone https://github.com/apache/incubator-shenyu.git
 ```
 
 ### 编译代码
@@ -27,8 +27,8 @@ tags: [Apache ShenYu]
 使用Maven进行编译
 
 ```shell
-> cd incubator-shenyu
-> mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
+cd incubator-shenyu
+mvn clean install -Dmaven.javadoc.skip=true -B -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests
 ```
 
 ### 启动网关服务
@@ -45,7 +45,7 @@ tags: [Apache ShenYu]
 
 > 到这一步，shenyu网关已经启动。
 >
-> 我们可以打开浏览器，访问admin控制台：[http://localhost:9095/](http://localhost:9095/)
+> 我们可以打开浏览器，访问admin控制台：[http://localhost:9095/](http://localhost:9095/，默认账号密码为：admin/123456)
 
 ### 启动应用服务
 

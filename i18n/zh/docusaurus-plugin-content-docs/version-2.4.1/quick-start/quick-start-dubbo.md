@@ -3,7 +3,7 @@ title: Dubbo快速开始
 description: Dubbo快速开始
 ---
 
-本文档演示如何将`Dubbo`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) 。
+本文档演示如何将`Dubbo`服务接入到`Apache ShenYu`网关。您可以直接在工程下找到本文档的[示例代码](https://github.com/apache/shenyu/tree/v2.4.1/shenyu-examples/shenyu-examples-dubbo) 。
 
 ## 环境准备
 
@@ -24,7 +24,7 @@ description: Dubbo快速开始
         <!-- apache shenyu  apache dubbo plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-apache-dubbo</artifactId>
+            <artifactId>shenyu-spring-boot-starter-client-apache-dubbo</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -65,7 +65,7 @@ description: Dubbo快速开始
         <!-- apache shenyu alibaba dubbo plugin start-->
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-spring-boot-starter-plugin-alibaba-dubbo</artifactId>
+            <artifactId>shenyu-spring-boot-starter-client-alibaba-dubbo</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -99,7 +99,7 @@ description: Dubbo快速开始
 
 ## 运行shenyu-examples-dubbo项目
 
-下载 [shenyu-examples-dubbo](https://github.com/apache/incubator-shenyu/tree/v2.4.0/shenyu-examples/shenyu-examples-dubbo) .
+下载 [shenyu-examples-dubbo](https://github.com/apache/shenyu/tree/v2.4.1/shenyu-examples/shenyu-examples-dubbo) .
 
 修改 `spring-dubbo.xml` 中的注册地址为你本地（注意区分`dubbo`的版本是`apache dubbo`还是`alibaba dubbo`），如：
 
@@ -125,6 +125,7 @@ description: Dubbo快速开始
 2021-02-06 20:58:01.922  INFO 3724 --- [pool-2-thread-1] o.d.s.client.common.utils.RegisterUtils  : dubbo client register success: {"appName":"dubbo","contextPath":"/dubbo","path":"/dubbo/findByStringArray","pathDesc":"","rpcType":"dubbo","serviceName":"org.dromara.shenyu.examples.dubbo.api.service.DubboMultiParamService","methodName":"findByStringArray","ruleName":"/dubbo/findByStringArray","parameterTypes":"[Ljava.lang.String;","rpcExt":"{\"group\":\"\",\"version\":\"\",\"loadbalance\":\"random\",\"retries\":2,\"timeout\":10000,\"url\":\"\"}","enabled":true} 
 ```
 
+注意：当您需要同时暴露`多个协议`时，请不要配置`shenyu.client.dubbo.props.port`。
 
 ## 测试
 

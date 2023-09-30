@@ -22,13 +22,13 @@ public class CustomLoadBalancer extends AbstractLoadBalancer {
 
 * 在`org.apache.shenyu.loadbalancer.spi.LoadBalancer`文件中添加如下内容：
 
-```shell script
+```shell title="script"
 ${spi name}=${custom class path}
 ``` 
 
 `${spi name}`表示`spi`的名称，`${custom class path}`表示该类的全限定名。比如：
 
-```shell script
+```shell title="script"
 custom=org.apache.shenyu.loadbalancer.spi.CustomLoadBalancer
 ```
 
@@ -44,7 +44,7 @@ custom=org.apache.shenyu.loadbalancer.spi.CustomLoadBalancer
 
 * 在`Apache ShenYu`网关管理系统 --> 基础配置 --> 字典管理， 找到字典编码为 `LOAD_BALANCE`，新增一条数据，注意字典名称要为: `${spi name}`，图中的示例是`custom`。
 
-<img src="static/img/shenyu/241/custom_load_balancer_zh.png" width="80%" height="70%" />
+<img src="/img/shenyu/custom/custom_load_balancer_zh.png" width="80%" height="70%" />
 
 > 字典类型：`loadBalance`；
 >
@@ -62,4 +62,4 @@ custom=org.apache.shenyu.loadbalancer.spi.CustomLoadBalancer
 
 * 在添加选择器或规则时，就可以使用自定义的匹配方式：
 
-<img src="static/img/shenyu/241/use_custom_load_balancer_zh.png" width="90%" height="80%" />
+<img src="/img/shenyu/custom/use_custom_load_balancer_zh.png" width="90%" height="80%" />

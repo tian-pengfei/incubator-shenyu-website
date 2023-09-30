@@ -14,7 +14,7 @@ description: sofa插件
 
 * 引入相关依赖，开启插件，请参考：[Sofa快速开始](../../quick-start/quick-start-sofa) 。
 
-* `Sofa`应用客户端接入，请参考：[Sofa服务接入](../../user-guide/sofa-rpc-proxy) 。
+* `Sofa`应用客户端接入，请参考：[Sofa服务接入](../../user-guide/proxy/sofa-rpc-proxy.md) 。
 
 * 选择器和规则配置，请参考：[选择器和规则管理](../../user-guide/admin-usage/selector-and-rule)。
 
@@ -30,7 +30,7 @@ description: sofa插件
 
 * 方法名称：需要调用的方法名。
 
-* 路径：`http`请路径。
+* 路径：`http`请求路径。
 
 * 路径描述：对该路径的说明，方便查看。
 

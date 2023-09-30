@@ -3,13 +3,17 @@
     "message": "下载",
     "description": "Navbar item with label Download"
   },
-  "item.label.Document": {
+  "item.label.Docs": {
     "message": "文档",
-    "description": "Navbar item with label Document"
+    "description": "Navbar item with label Docs"
   },
   "item.label.Community": {
     "message": "社区",
     "description": "Navbar item with label Community"
+  },
+  "item.label.Team": {
+    "message": "团队",
+    "description": "Navbar item with label Team"
   },
   "item.label.Event": {
     "message": "事件",
@@ -54,6 +58,10 @@
   "item.label.Sponsorship": {
     "message": "Sponsorship",
     "description": "Navbar item with label Sponsorship"
+  },
+  "item.label.Privacy": {
+    "message": "Privacy",
+    "description": "Navbar item with label Privacy"
   },
   "item.label.Thanks": {
     "message": "Thanks",

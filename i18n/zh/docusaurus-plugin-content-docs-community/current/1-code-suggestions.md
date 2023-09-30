@@ -1,6 +1,6 @@
 ---
 title: 编码建议
-sidebar_position: 2
+sidebar_position: 1
 description: Apache ShenYu 编码建议
 author: "xiaoyu"
 categories: "Apache ShenYu"
@@ -23,9 +23,13 @@ cover: "/img/architecture/shenyu-framework.png"
 
 * 使用 `linux` 换行符号.
 
-* 每行代码前面必须保持 `4` 个 `Tab Siz` 。
+* 每行代码前面必须保持 `4` 个 `Tab Size` 。
 
-* 所有的代码 必须通过 checkStyle的检查: https://github.com/apache/incubator-shenyu/blob/master/script/shenyu_checkstyle.xml
+* 所有的代码 必须通过 checkStyle的检查: https://github.com/apache/shenyu/blob/master/script/shenyu_checkstyle.xml
+
+* 添加新文件时，需要在文件头添加 [apache协议](https://github.com/apache/shenyu-website/blob/57f9a6b14c27d97137275453b207232f3df53205/LICENSE#L191-L201)
+
+* 尽量不直接使用第三方工具类，先查看本项目util包下是否包含。
 
 ## Object
 
@@ -214,4 +218,3 @@ try {
 * 判断自身对象是否为 Null，但是返回 Optional 包装的，以下是几个代表实例。  
   目前 ： ```return null == a ? Optional.empty() : Optional.ofNullable(a.getXXX());```    
   建议 ： ```return Optional.ofNullable(a).map(e -> e.getXXX());```  
-  

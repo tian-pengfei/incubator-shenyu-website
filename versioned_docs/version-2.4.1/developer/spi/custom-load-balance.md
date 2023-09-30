@@ -22,13 +22,13 @@ public class CustomLoadBalancer extends AbstractLoadBalancer {
 
 * Add key-value as following in `org.apache.shenyu.loadbalancer.spi.LoadBalancer` file.
 
-```shell script
+```shell title="script"
 ${spi name}=${custom class path}
 ``` 
 
 `${spi name}` represents the name of `spi` and `${custom class path}` represents the fully qualified name of the class. Such as:
 
-```shell script
+```shell title="script"
 custom=org.apache.shenyu.loadbalancer.spi.CustomLoadBalancer
 ```
 
@@ -46,7 +46,7 @@ custom=org.apache.shenyu.loadbalancer.spi.CustomLoadBalancer
 * In the `Apache ShenYu` gateway management system --> BasicConfig --> Dictionary,  find the dictionary code as `LOAD_BALANCE`, add a new piece of data, pay attention to the dictionary name: `${spi name}`.
 
 
-<img src="static/img/shenyu/241/custom_load_balancer_en.png" width="80%" height="70%" />
+<img src="/img/shenyu/custom/custom_load_balancer_en.png" width="80%" height="70%" />
 
 
 > DictionaryType: `loadBalance`;
@@ -64,5 +64,5 @@ custom=org.apache.shenyu.loadbalancer.spi.CustomLoadBalancer
 
 * When adding selectors or rules, you can use custom MatchType:
 
-<img src="static/img/shenyu/241/use_custom_load_balancer_en.png" width="90%" height="80%" />
+<img src="/img/shenyu/custom/use_custom_load_balancer_en.png" width="90%" height="80%" />
 

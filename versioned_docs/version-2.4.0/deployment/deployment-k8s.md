@@ -1,32 +1,32 @@
 ---
 sidebar_position: 4
-title: K8S Deployment
+title: K8s Deployment
 keywords: ["k8s"]
-description: k8s Deployment
+description: K8s Deployment
 ---
 
-This article introduces the use of `k8s` to deploy the `Apache ShenYu` gateway.
+This article introduces the use of `K8s` to deploy the `Apache ShenYu` gateway.
 
 
 > Catalog
 >
 > I. Using h2 as a database
 >
-> 1. create nameSpace and configMap
+> 1. create Namespace and ConfigMap
 > 2. deploying shenyu-admin
 > 3. deploy shenyu-bootstrap
-> II. Use mysql as the database
+> II. Use MySQL as the database
 >
 > Similar to the h2 process, there are two points to note
 >
-> 1. you need to load mysql-connector.jar, so you need a place to store the file
-> 2. you need to specify an external mysql database configuration to proxy the external mysql database via endpoint
+> 1. you need to load [mysql-connector.jar](https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar), so you need a place to store the file
+> 2. you need to specify an external MySQL database configuration to proxy the external MySQL database via Endpoints
 >
 > The process is as follows.
 >
-> 1. create nameSpace and configMap
-> 2. create endpoint to proxy external mysql
-> 3. create pv store mysql-connector.jar
+> 1. create Namespace and ConfigMap
+> 2. create Endpoints to proxy external MySQL
+> 3. create PV store mysql-connector.jar
 > 4. deploy shenyu-admin
 > 5. deploy shenyu-bootstrap
 
@@ -34,7 +34,7 @@ This article introduces the use of `k8s` to deploy the `Apache ShenYu` gateway.
 
 ## I. Using h2 as a database
 
-### 1. Create nameSpace and configMap
+### 1. Create Namespace and ConfigMap
 
 - create shenyu-ns.yaml
 
@@ -76,7 +76,7 @@ data:
             parameter: multi
         sync:
             websocket:
-            urls: ws://shenyu-admin-svc.shenyu.svc.cluster.local:9095/websocket
+              urls: ws://shenyu-admin-svc.shenyu.svc.cluster.local:9095/websocket
         exclude:
             enabled: false
             paths:
@@ -141,7 +141,7 @@ spec:
     spec:
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:latest
+        image: apache/shenyu-admin:2.4.0
         imagePullPolicy: Always
         ports:
         - containerPort: 9095
@@ -198,7 +198,7 @@ spec:
             path: application-local.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:latest
+        image: apache/shenyu-bootstrap:2.4.0
         ports:
         - containerPort: 9195
         env:
@@ -216,9 +216,9 @@ spec:
 
 
 
-## II. Use mysql as the database
+## II. Use MySQL as the database
 
-### 1. Create nameSpace and configMap
+### 1. Create Namespace and ConfigMap
 
 - create shenyu-ns.yaml
 
@@ -260,7 +260,7 @@ data:
             parameter: multi
         sync:
             websocket:
-            urls: ws://shenyu-admin-svc.shenyu.svc.cluster.local:9095/websocket
+              urls: ws://shenyu-admin-svc.shenyu.svc.cluster.local:9095/websocket
         exclude:
             enabled: false
             paths:
@@ -290,7 +290,7 @@ data:
 
 - execute `kubectl apply -f shenyu-ns.yaml`
 
-### 2. Create endpoint to represent mysql
+### 2. Create Endpoints to represent MySQL
 
 - create shenyu-ep.yaml
 
@@ -321,12 +321,12 @@ subsets:
 
 - execute `kubectl apply -f shenyu-ep.yaml`
 
-### 3. Create pv to store mysql-connector.jar
+### 3. Create PV to store mysql-connector.jar
 
 - create shenyu-store.yaml
 
 ```yaml
-# Example of using pvc、pv、storageClass to store jar file
+# Example of using PVC、PV、StorageClass to store jar file
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -372,7 +372,7 @@ volumeBindingMode: WaitForFirstConsumer
 ```
 
 - execute `kubectl apply -f shenyu-pv.yaml`
-- pv mounted directory upload `mysql-connector.jar`
+- PV mounted directory upload `mysql-connector.jar`
 
 
 ### 4. Create shenyu-admin
@@ -424,7 +424,7 @@ spec:
             path: application-mysql.yml
       containers:
       - name: shenyu-admin
-        image: apache/shenyu-admin:latest
+        image: apache/shenyu-admin:2.4.0
         imagePullPolicy: Always
         ports:
         - containerPort: 9095
@@ -489,7 +489,7 @@ spec:
             path: application-local.yml
       containers:
       - name: shenyu-bootstrap
-        image: apache/shenyu-bootstrap:latest
+        image: apache/shenyu-bootstrap:2.4.0
         ports:
         - containerPort: 9195
         env:

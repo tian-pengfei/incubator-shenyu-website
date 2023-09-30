@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Apache ShenYu Introduction
+title: Overview
 keywords: ["Apache shenyu"]
 description: This is an asynchronous, high-performance, cross-language, responsive API gateway.
 aliases: "/shenyu/docs/Home"
@@ -24,7 +24,7 @@ This is an asynchronous, high-performance, cross-language, responsive API gatewa
 ![](/img/architecture/shenyu-framework.png)
 
 
-# Mind maps
+# Mind map
 
  ![](/img/shenyu/activite/shenyu-xmind.png)
 

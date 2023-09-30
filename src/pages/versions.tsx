@@ -21,9 +21,9 @@ function Version() {
   return (
     <Layout
       title="Versions"
-      description="Apache ShenYu(Incubating)  Versions page listing all documented site versions">
+      description="Apache ShenYu Versions page listing all documented site versions">
       <main className="container margin-vert--lg">
-        <h1>Apache ShenYu(Incubating) documentation versions</h1>
+        <h1>Apache ShenYu documentation versions</h1>
 
         {latestVersion && (
           <div className="margin-bottom--lg">
@@ -74,7 +74,7 @@ function Version() {
             <h3 id="archive">Past versions (Not maintained anymore)</h3>
             <p>
               Here you can find documentation for previous versions of
-              Apache ShenYu(Incubating).
+              Apache ShenYu.
             </p>
             <table>
               <tbody>
